@@ -51,3 +51,31 @@
 					document.addEventListener( self.eventtype, self.bodyClickFn );
 				}
 			} );
+
+		this.menu.addEventListener( this.eventtype, function(ev) { ev.stopPropagation(); } );
+		},
+		_openIconMenu : function() {
+			classie.add( this.menu, 'gn-open-part' );
+		},
+		_closeIconMenu : function() {
+			classie.remove( this.menu, 'gn-open-part' );
+		},
+		_openMenu : function() {
+			if( this.isMenuOpen ) return;
+			classie.add( this.trigger, 'gn-selected' );
+			this.isMenuOpen = true;
+			classie.add( this.menu, 'gn-open-all' );
+			this._closeIconMenu();
+		},
+		_closeMenu : function() {
+			if( !this.isMenuOpen ) return;
+			classie.remove( this.trigger, 'gn-selected' );
+			this.isMenuOpen = false;
+			classie.remove( this.menu, 'gn-open-all' );
+			this._closeIconMenu();
+		}
+	}
+
+	window.gnMenu = gnMenu;
+
+} )( window );
