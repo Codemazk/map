@@ -37,6 +37,17 @@ function toggleClass( elem, c ) {
   fn( elem, c );
 }
 
+var classie = {
+  hasClass: hasClass,
+  addClass: addClass,
+  removeClass: removeClass,
+  toggleClass: toggleClass,
+  has: hasClass,
+  add: addClass,
+  remove: removeClass,
+  toggle: toggleClass
+};
+
 if ( typeof define === 'function' && define.amd ) {
     define( classie );
 } else {
